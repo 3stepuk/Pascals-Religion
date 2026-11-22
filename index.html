@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pascal's Religion — Port-Royal, grace, and a condemned movement</title>
+<meta name="description" content="Six sessions on the religion Blaise Pascal actually held: Port-Royal, Jansenism, the condemnations of 1653 and after, and what a Catholic may take from him.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#14120F; --ink:#E9E1D2; --muted:#A2988A; --line:#332C24;
+    --gold:#C9A227; --deep:#F2E9D8; --wash:#1E1A15;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,system-ui,sans-serif;line-height:1.65}
+  h1,h2,h3,.serif{font-family:"Cormorant Garamond",Georgia,serif;letter-spacing:.01em}
+  header{border-bottom:1px solid var(--line);padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:14px;background:rgba(20,18,15,.92);position:sticky;top:0;z-index:20;backdrop-filter:blur(6px)}
+  .brand{font-family:"Cormorant Garamond",serif;font-size:19px;letter-spacing:.06em;color:var(--deep)}
+  .brand span{color:var(--gold)}
+  .progress{flex:1;max-width:260px;height:5px;background:var(--wash);border-radius:3px;overflow:hidden}
+  .progress i{display:block;height:100%;width:0;background:var(--gold);transition:width .4s}
+  .btn{font-size:12px;letter-spacing:.12em;text-transform:uppercase;border:1px solid var(--line);background:#1B1713;padding:8px 12px;border-radius:6px;cursor:pointer;color:var(--muted)}
+  .btn:hover{border-color:var(--gold);color:var(--ink)}
+  .layout{display:grid;grid-template-columns:290px 1fr;min-height:calc(100vh - 61px)}
+  aside{border-right:1px solid var(--line);padding:18px 14px;background:#171410}
+  aside h2{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin:6px 8px 12px;font-family:Inter,sans-serif}
+  .part{margin:18px 8px 6px;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+  .item{display:flex;gap:10px;align-items:baseline;width:100%;text-align:left;background:none;border:none;padding:9px 8px;border-radius:6px;cursor:pointer;font-size:14px;color:var(--ink);line-height:1.35}
+  .item:hover{background:var(--wash)}
+  .item.on{background:var(--wash);box-shadow:inset 3px 0 0 var(--gold)}
+  .item .n{font-variant-numeric:tabular-nums;color:var(--gold);font-size:12px;min-width:18px}
+  .item.done .n::after{content:" ✓";color:var(--deep)}
+  main{padding:38px 40px 90px;max-width:760px}
+  .kicker{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin:0 0 10px}
+  h1{font-size:clamp(28px,4vw,40px);line-height:1.15;margin:0 0 10px;color:var(--deep)}
+  .purpose{font-size:17px;color:var(--muted);font-style:italic;margin:0 0 24px}
+  .remember{background:#1F2A22;color:#EFE7D6;border:1px solid #34443A;border-radius:10px;padding:18px 20px;margin:0 0 26px}
+  .remember small{display:block;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#A8BD9E;margin-bottom:6px}
+  .remember p{margin:0;font-family:"Cormorant Garamond",serif;font-size:21px;line-height:1.4}
+  p{font-size:16.5px;margin:0 0 16px}
+  .block{border-top:1px solid var(--line);margin-top:28px;padding-top:18px}
+  .block h3{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin:0 0 10px;font-family:Inter,sans-serif}
+  ol{padding-left:20px} li{margin-bottom:10px}
+  .notthis{background:var(--wash);border-left:3px solid var(--gold);padding:12px 16px;font-size:15px;color:#D8CFC0}
+  .nav{display:flex;justify-content:space-between;gap:12px;margin-top:34px}
+  footer{border-top:1px solid var(--line);padding:20px;text-align:center;font-size:12px;color:var(--muted)}
+  ul.refs{margin:0;padding-left:18px;font-size:14px;color:var(--muted)} ul.refs li{margin-bottom:6px}
+  h1,.brand{color:#F4ECDC}
+  a{color:var(--gold)}
+  @media (max-width:860px){.layout{grid-template-columns:1fr}aside{border-right:none;border-bottom:1px solid var(--line)}main{padding:26px 20px 70px}}
+  @media print{header,aside,.nav,footer{display:none}main{max-width:none;padding:0}body{background:#fff;color:#000}.remember{background:#fff;color:#000;border:1px solid #000}}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">Pascal&rsquo;s Religion <span>·</span> six sessions</div>
+  <a class="btn" href="https://1582rheims.com/resources.html" style="text-decoration:none">← Resources</a>
+  <div class="progress"><i id="bar"></i></div>
+  <button class="btn" id="reset">Start again</button>
+</header>
+<div style="max-width:760px;margin:0 auto;padding:16px 22px 0">
+    <div style="background:#2A1D12;border:1px solid #6B4E2E;border-left:4px solid #C9A227;border-radius:8px;padding:14px 16px;font-size:14px;line-height:1.6;color:#E7DCC9">
+      <strong style="color:#C9A227;letter-spacing:.06em;text-transform:uppercase;font-size:11px">Not core Catholicism</strong><br>
+      Pascal was attached to <em>Port-Royal</em>, the centre of the Jansenist movement, and <strong>Jansenism was condemned</strong> — first in <em>Cum occasione</em> (1653). This course studies a contested movement and the religion one man held. It is not a recommendation, and nothing in it is doctrine unless it is cited as doctrine.
+    </div>
+  </div>
+<div class="layout">
+  <aside>
+    <h2>The path</h2>
+    <div id="toc"></div>
+  </aside>
+  <main id="main"></main>
+</div>
+<footer>
+  <div style="max-width:760px;margin:0 auto 10px;text-align:left;line-height:1.9">
+    <strong style="letter-spacing:.08em;text-transform:uppercase;font-size:10px;color:var(--gold)">Sources</strong><br>
+    <a href="https://www.vatican.va/roman_curia/pontifical_councils/justpeace/documents/rc_pc_justpeace_doc_20060526_compendio-dott-soc_en.html">Compendium of the Social Doctrine of the Church</a> (2004) ·
+    <a href="https://www.vatican.va/content/leo-xiii/en/encyclicals/documents/hf_l-xiii_enc_15051891_rerum-novarum.html">Rerum Novarum</a> (1891) ·
+    <a href="https://www.vatican.va/content/pius-xi/en/encyclicals/documents/hf_p-xi_enc_19310515_quadragesimo-anno.html">Quadragesimo Anno</a> (1931) ·
+    <a href="https://www.vatican.va/content/paul-vi/en/encyclicals/documents/hf_p-vi_enc_26031967_populorum.html">Populorum Progressio</a> (1967) ·
+    <a href="https://www.vatican.va/content/john-paul-ii/en/encyclicals/documents/hf_jp-ii_enc_14091981_laborem-exercens.html">Laborem Exercens</a> (1981) ·
+    <a href="https://www.vatican.va/content/john-paul-ii/en/encyclicals/documents/hf_jp-ii_enc_30121987_sollicitudo-rei-socialis.html">Sollicitudo Rei Socialis</a> (1987) ·
+    <a href="https://www.vatican.va/content/john-paul-ii/en/encyclicals/documents/hf_jp-ii_enc_01051991_centesimus-annus.html">Centesimus Annus</a> (1991) ·
+    <a href="https://www.vatican.va/content/benedict-xvi/en/encyclicals/documents/hf_ben-xvi_enc_20090629_caritas-in-veritate.html">Caritas in Veritate</a> (2009) ·
+    <a href="https://www.vatican.va/content/francesco/en/encyclicals/documents/papa-francesco_20150524_enciclica-laudato-si.html">Laudato Si'</a> (2015) ·
+    <a href="https://www.vatican.va/content/francesco/en/encyclicals/documents/papa-francesco_20201003_enciclica-fratelli-tutti.html">Fratelli Tutti</a> (2020)
+  </div>
+  <div style="max-width:760px;margin:0 auto;text-align:left">
+    Each session ends with the references behind it. Where a paragraph or section number is given, it has been checked against the text. Where only the document is named, the claim is a summary of that document — check it there.
+  </div>
+  <div style="max-width:760px;margin:14px auto 0;text-align:left">
+    <strong style="letter-spacing:.08em;text-transform:uppercase;font-size:10px;color:var(--gold)">How to trust it</strong><br>
+    This course follows the history, not a catechism: Where it states doctrine, it states what the Church teaches. Where it makes a judgement about a particular situation, it says so, and a Catholic is free to disagree with that judgement. Nothing here has any authority of its own.
+  </div>
+  <div style="margin-top:14px">Not an official text. A study path, written by a man still learning it.</div>
+</footer>
+<script src="sessions.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
